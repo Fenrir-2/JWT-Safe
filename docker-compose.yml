@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    build: api_apr
+    ports:
+      - "5200:5000"
