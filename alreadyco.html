@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login.css"/>
+    <script src="API.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div class="upbar">
+
+    <ul class="upbar_list" id="ulid">
+
+        <li class="Main"><a href="home.html">Home</a></li>
+        <li class="list_page"><a href="connexion.html">Connexion</a></li>
+        <li class="list_page"><a href="inscription.html">Inscription</a></li>
+        <li class="list_page"><a href="Upload.html">Upload</a></li>
+        <li class="list_page"><a href="Load.html">Load</a></li>
+        <li class="list_page"><div><status id="connected"></status></div></li>
+        
+
+
+
+        <script>
+            if (localStorage.getItem('username')!=null) {
+
+                document.getElementById("connected").innerHTML = "Connected as <br/>" + localStorage.getItem('username');
+                var button = document.createElement("button");
+                button.innerHTML = "Deconnexion";
+                button.onclick = Deco;
+                //button.style="background-color:#333333;border:black;color: red;text-align: center;padding: 16px;text-decoration: none;"
+                document.getElementById("ulid").appendChild(button);
+            }else {
+                document.getElementById("connected").innerHTML = "Not connected";
+            }
+        </script>
+    </ul>
+</div>
+
+
+<div class="container" id="cont">
+    <script>
+        if (localStorage.getItem('username')!=null) {
+            var h1 = document.createElement("h1");
+            h1.innerHTML = "Déjà connecté sous"+localStorage.getItem('username');
+            document.getElementById("cont").appendChild(h1);
+        }else{
+            window.location.replace("connexion.html");
+        }
+    </script>
+</div>
+
+
+<div class ="footer">
+    <a>FOOTER, Benjamin Nicolas Maxime Dimitri</a>
+</div>
+</body>
+</html>
