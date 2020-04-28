@@ -1,0 +1,19 @@
+Get token
+---
+parameters:
+  - in: header
+    name: Authorization
+    type: Basic
+    required: true
+
+responses:
+  200:
+    description: Returns the token
+    schema:
+      properties:
+        token:
+          type: string
+          description: the token
+        reason:
+          type: string
+          description: if it fails, explanation of why the token wasn't delivered

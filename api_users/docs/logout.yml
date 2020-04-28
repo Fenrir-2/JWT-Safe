@@ -1,0 +1,25 @@
+Logout method
+---
+description: Logout user
+parameters:
+  - name: LOGIN
+    in: body
+    type: string
+    required: true
+  - name: TOKEN
+    in: body
+    type: string
+    required: true
+responses:
+  200:
+    description: Returns true if the logout is successful
+    schema:
+      properties:
+        logout:
+          type: boolean
+          description: true if the logout is successful otherwise false
+          default: true
+        reason:
+          type: string
+          description: if it fails, explanation of why the logout wasn't successful
+          default: 

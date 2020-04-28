@@ -1,0 +1,25 @@
+Register user method
+---
+description: Register a new user in the app
+parameters:
+  - name: LOGIN
+    in: body
+    type: string
+    required: true
+  - name: PASSWORD
+    in: body
+    type: string
+    required: true
+responses:
+  200:
+    description: Returns true if the registration is successful
+    schema:
+      properties:
+        registration:
+          type: boolean
+          description: true if the registration is successful otherwise false
+          default: true
+        reason:
+          type: string
+          description: if it fails, explanation of why the registration wasn't successful
+          default: 

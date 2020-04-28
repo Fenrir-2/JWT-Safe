@@ -1,0 +1,11 @@
+{
+	"$schema":"http://json-schema.org/schema#",
+	"title": "USER SCHEME",
+	"description": "Scheme used to add a user",
+	"type": "object",
+	"oneOf": [{"required": ["LOGIN", "PASSWORD"]}],
+	"properties":{"LOGIN": {"type": "string"},
+				  "PASSWORD":{"type": "string"}},
+    "minProperties":2,
+    "maxProperties":2
+}

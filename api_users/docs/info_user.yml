@@ -1,0 +1,20 @@
+Get user info
+---
+parameters:
+  - in: header
+    name: Authorization
+    type: Basic
+    required: true
+  - name: login
+    in: path
+    type: string
+    required: true
+responses:
+  200:
+    description: A single user item
+    schema:
+      properties:
+        login:
+          type: string
+          description: the user login
+        
