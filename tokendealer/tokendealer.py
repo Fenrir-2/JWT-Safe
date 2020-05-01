@@ -14,7 +14,7 @@ def close_connections(ctx:zmq.Context):
     else :
         exit(-1)
 
-def generate_keypair() -> bytes,bytes:
+def generate_keypair() -> (bytes,bytes):
     """
     Function used to generate the RSA keypair for jwt encryption
     """
