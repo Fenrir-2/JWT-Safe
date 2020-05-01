@@ -1,0 +1,23 @@
+Delete user
+---
+parameters:
+  - in: header
+    name: Authorization
+    type: Basic
+    required: true
+  - name: login
+    in: path
+    type: string
+    required: true
+responses:
+  200:
+    description: Returns true if the user was successfully deleted
+    schema:
+      properties:
+        deleted:
+          type: boolean
+          description: true if the user was successfully deleted
+          default: true
+        reason:
+          type: string
+          description: if it fails, explanation of why the user wasn't deleted

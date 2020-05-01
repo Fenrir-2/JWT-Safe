@@ -1,6 +1,30 @@
 version: '3'
 services:
-  web:
+  tokendealer:
+    build: tokendealer
+    ports:
+      - "7000:7000"
+  apr:
     build: api_apr
     ports:
-      - "5200:5000"
+      - "5100:5000"
+    links:
+      - tokendealer
+  apiusers:
+    build: api_users
+    command: python -u app.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./api_users:/app
+    links:
+      - mongodb
+      - tokendealer
+  mongodb:
+    image: mongo:latest
+    restart: unless-stopped
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: usersdb
