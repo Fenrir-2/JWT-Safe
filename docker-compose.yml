@@ -1,6 +1,8 @@
 version: '3'
 services:
-  web:
-    build: api_apr
+  tokendealer:
+    build: tokendealer
     ports:
-      - "5200:5000"
+      - "7000:7000"
+  
+  
