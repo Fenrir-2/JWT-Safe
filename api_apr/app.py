@@ -19,14 +19,13 @@ def token_check():
         socket = context.socket(zmq.REQ)
         socket.connect("tcp://token_dealer:7000")
         socket.send_json({"check" : token})
-
+    
         message = socket.recv_json()
-
+    
         if message['status'] != "ok":
             return abort(403)
-
-        if message['valid']:
-            return json.dumps({"Status" : "Everything worked fine"}
     
+        if message['valid']:
+            return json.dumps({"Status" : "Everything worked fine"})
     except:
         return json.dumps({"Error" : "No token dealer"})
